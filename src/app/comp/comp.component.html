@@ -1,0 +1,71 @@
+<h1>Service basics and role in the application</h1>
+<pre>
+   Task1.
+
+   Create and register a service by connecting it to a component. 
+   Create an array of strings with product names and a method that returns a reference to the array. 
+   Display the data in the component as a list. 
+</pre>
+<div *ngFor="let arraySt of arrayStr">
+   <div >
+      <p>{{arraySt.name}}</p>
+      <p>{{arraySt.price}}</p>
+      <p>{{arraySt.description}}</p>
+   </div>
+  
+
+</div>
+<hr>
+<h2>option1</h2>
+
+<input #inp (input)="takeValue()" type="text">
+<p class="text" #text>{{p}}</p>
+<p>PRODUCTS:</p>
+<ul >
+   <li *ngFor="let arraySt of arrayStr">{{arraySt.name}}</li>
+   </ul>
+
+<hr>
+
+<pre>
+   Task 2. 
+
+   Add an input field to the markup, adding filter functionality to the task above.
+   By writing the names of the products in the field, only those with a similar name will be displayed in the list. 
+</pre>
+
+<h2>option2</h2>
+<input  [(ngModel)]="namea" required>
+<button (click)="onSearch()">Search</button>
+<ul>
+  <li *ngFor="let product of arrayStr">
+    {{product.name}}
+  </li>
+</ul>
+<p *ngIf="!arrayStr.length">No results</p>
+<hr>
+<pre>
+   Task 3 
+
+   Create a service that has an array of integer values,
+   add a method that sorts the array in descending and ascending order, 
+   and returns the maximum number of the array. 
+   Implement the data retrieval and output in a component. 
+</pre>
+
+<ul>
+   <li *ngFor="let num of arrayNum">{{num}}</li>
+</ul>
+<p>Max Number: {{maxNumber}}</p>
+<button (click)="toLessFromService()">Sort to less</button>
+<button (click)="toMoreFromService()">Sort to more</button>
+<button (click)="maxNum()">to take maximum number</button>
+
+<hr>
+
+<pre>
+   Task 4 
+
+   Implement the job functionality above by filling an array with objects that describe a product, for example: 
+   Use the markup as you see fit, prompting the user when nothing is found by the filter criteria.
+</pre>
